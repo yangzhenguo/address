@@ -14,7 +14,12 @@
           </ul>
       </div>
       <h3 v-else class="no-data">
-        Not Data
+        <template v-if="key">
+          该小区没有二维码，请检查小区名称是否错误或者联系我们的客服
+        </template>
+        <template v-else>
+          先通过输入框查询自己的小区哦
+        </template>
       </h3>
     </div>
 
@@ -100,7 +105,10 @@ html, body {
 
 .no-data {
   height: 100%;
+  padding: 0 30px;
+  text-align: center;
   display: flex;
+  line-height: 1.4;
   justify-content: center;
   align-items: center;
 }
