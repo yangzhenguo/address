@@ -25,7 +25,9 @@ html, body {
 }
 .thumbnail {
   width: 50vw;
+  height: 50vw;
   max-width: 350px;
+  max-height: 350px;
 }
 .img_content {
   height: 100%;
