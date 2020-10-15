@@ -38,6 +38,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 8 << 10,
+          esModule: false,
           name: `images/[name].[${statichash}:8].[ext]`
         }
       } },
