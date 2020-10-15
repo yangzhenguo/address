@@ -13,9 +13,9 @@
             </li>
           </ul>
       </div>
-      <div v-else>
+      <h3 v-else class="no-data">
         Not Data
-      </div>
+      </h3>
     </div>
 
     <form class="form-horizontal">
@@ -96,5 +96,18 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.no-data {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3 {
+  margin: 0;
+
+  color: #666;
 }
 </style>
