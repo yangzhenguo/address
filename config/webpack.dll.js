@@ -1,5 +1,6 @@
 const { resolve } = require('path')
 const { DllPlugin } = require('webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'production',
@@ -12,6 +13,7 @@ module.exports = {
     library: '[name]_[chunkhash:8]'
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new DllPlugin({
       name: '[name]_[chunkhash:8]',
       path: resolve(process.cwd(), 'src/lib/manifest.json')
