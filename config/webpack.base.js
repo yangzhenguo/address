@@ -1,7 +1,9 @@
 const { resolve } = require('path')
+const { DllReferencePlugin } = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const VuePlugin = require('vue-loader/lib/plugin')
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
 
 const mode = process.env.NODE_ENV || 'development'
 const statichash = mode === 'production' ? 'contenthash' : 'hash'
@@ -12,6 +14,7 @@ module.exports = {
   output: {
     path: resolve(__dirname, '../dist'),
     filename: `js/[name].[${chunkhash}:8].js`,
+    chunkFilename: `[name].[${chunkhash}:8].js`,
   },
   module: {
     rules: [
@@ -50,5 +53,11 @@ module.exports = {
       template: './src/index.html',
     }),
     new VuePlugin(),
+    new DllReferencePlugin({
+      manifest: require.resolve('../src/lib/manifest.json'),
+    }),
+    new AddAssetHtmlPlugin({
+      filepath: resolve('../src/lib/*.js')
+    }),
   ],
 }
