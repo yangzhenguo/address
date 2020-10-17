@@ -54,10 +54,10 @@ module.exports = {
     }),
     new VuePlugin(),
     new DllReferencePlugin({
-      manifest: require.resolve('../src/lib/manifest.json'),
+      manifest: resolve('src/lib/manifest.json'),
     }),
     new AddAssetHtmlPlugin({
-      filepath: resolve('../src/lib/*.js')
+      filepath: resolve('src/lib/*.js')
     }),
   ],
 }

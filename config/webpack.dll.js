@@ -8,7 +8,7 @@ module.exports = {
     venders: ['vue']
   },
   output: {
-    path: resolve(process.cwd(), 'src/lib'),
+    path: resolve('src/lib'),
     filename: '[name].[chunkhash:8].js',
     library: '[name]_[chunkhash:8]'
   },
@@ -16,7 +16,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new DllPlugin({
       name: '[name]_[chunkhash:8]',
-      path: resolve(process.cwd(), 'src/lib/manifest.json')
+      path: resolve('src/lib/manifest.json')
     })
   ]
 }
